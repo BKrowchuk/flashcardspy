@@ -16,6 +16,7 @@ def destroy_widgets():
         widget.destroy()
 
 
+# to remove when other functions are working
 def add_label(label_text):
     label = tk.Label(user_frame, text=label_text, pady=5, padx=10, bg="light blue")
     label.pack()
@@ -23,6 +24,8 @@ def add_label(label_text):
 
 def create_new_deck():
     destroy_widgets()
+    subtitle = tk.Label(user_frame, text="Create New Deck", pady=10, padx=10, bg="light blue")
+    subtitle.pack()
     CreateNewDeck.create_new_deck(user_frame)
 
 
