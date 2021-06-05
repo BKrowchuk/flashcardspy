@@ -3,8 +3,13 @@ from tkinter import filedialog, Text
 import os
 
 root = tk.Tk()
-root.title('Flashcards')
+root.title('Leornian')
 curr_file = ['default']
+
+
+# Option buttons functions
+def create_new_deck():
+    print("create new deck clicked")
 
 
 def load_deck():
@@ -18,16 +23,42 @@ def load_deck():
     curr_file.append(filename)
 
 
+def practice():
+    print("practice clicked")
+
+
+def my_stats():
+    print("my stats clicked")
+
+
+# Creating canvas and title
 # bg="light blue"
 canvas = tk.Canvas(root, height=600, width=700, bg="#263D42")
 canvas.pack()
 
-deck_frame = tk.Frame(root, height=100, width=100)
-deck_frame.place(relwidth=0.8, relheight=0.8, relx=0.1, rely=0.1)
+title_frame = tk.Frame(root, bg="#263D42")
+title_frame.place(relwidth=0.9, relheight=0.05, relx=0.05, rely=0.04)
 
-open_file = tk.Button(root, text="Load Deck", padx=10,
-                      pady=5, fg="white", bg="#263D42", command=load_deck)
-open_file.pack()
+title = tk.Label(title_frame, text="Leornian", fg="white", bg="#263D42")
+title.pack()
+
+# Creating frames for dashboard separation
+options_frame = tk.Frame(root, bg="light blue")
+options_frame.place(relwidth=0.27, relheight=0.85, relx=0.045, rely=0.1)
+
+deck_frame = tk.Frame(root, height=100, width=100)
+deck_frame.place(relwidth=0.585, relheight=0.85, relx=0.37, rely=0.1)
+
+# Populating options frame
+options_lbl = tk.Label(options_frame, text="Options", fg="black", bg="light blue")
+options_lbl.pack()
+
+create_new_deck_btn = tk.Button(options_frame, text="Create New Deck", padx=10, pady=5, fg="white", bg="#263D42", command=create_new_deck)
+create_new_deck_btn.pack()
+
+load_deck_btn = tk.Button(options_frame, text="Load Deck", padx=10,
+                          pady=5, fg="white", bg="#263D42", command=load_deck)
+load_deck_btn.pack()
 
 
 root.mainloop()
