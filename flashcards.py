@@ -1,6 +1,7 @@
 import tkinter as tk
 from tkinter import filedialog, Text
 import os
+import CreateNewDeck
 
 root = tk.Tk()
 root.title('Leornian')
@@ -22,7 +23,7 @@ def add_label(label_text):
 
 def create_new_deck():
     destroy_widgets()
-    add_label("create new deck clicked")
+    CreateNewDeck.create_new_deck(user_frame)
 
 
 def load_deck():
